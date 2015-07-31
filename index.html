@@ -14,6 +14,18 @@
   <body ng-controller="ToDoListController as toDoCtrl">
     <div>
 
+      <form ng-submit="toDoCtrl.addNewTask()">
+        <input type="text" placeholder="Add new task here" ng-model="toDoCtrl.newTask">
+        <input type="submit" id="createTaskButton" value="Add Task">
+      </form>
+
+      <ul class="list-group">List of all tasks:
+
+             <li ng-repeat = "task in toDoCtrl.allTasks">
+              {{task}}
+             </li>
+           </ul>
+
     </div>
   </body>
 </html>

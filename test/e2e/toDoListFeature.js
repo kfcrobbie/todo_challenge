@@ -39,5 +39,21 @@ describe('To Do List', function() {
     expect(element.all(by.repeater('task in toDoCtrl.allTasks')).count()).toEqual(1);
   });
 
+  it('correctly displays active tasks', function() {
+    var checkbox = element(by.id('markDone'));
+    newEntryField.sendKeys('Acquire new monkey');
+    createTaskButton.click();
+    checkbox.click();
+    newEntryField.sendKeys('Sell stupid monkey');
+    createTaskButton.click();
+    element(by.id('showActiveTasksButton')).click();
+    expect(element.all(by.repeater('task in toDoCtrl.allTasks')).count()).toEqual(1);
+  });
 
+  it('can clear all tasks', function(){
+    newEntryField.sendKeys('Acquire new monkey');
+    createTaskButton.click();
+    element(by.id('clearAllTasksButton')).click();
+    expect(element.all(by.repeater('task in toDoCtrl.allTasks')).count()).toEqual(0);
+  });
 })

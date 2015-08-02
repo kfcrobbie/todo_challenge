@@ -56,4 +56,17 @@ describe('To Do List', function() {
     element(by.id('clearAllTasksButton')).click();
     expect(element.all(by.repeater('task in toDoCtrl.allTasks')).count()).toEqual(0);
   });
+
+  it('can clear completed tasks', function(){
+    var checkbox = element(by.id('markDone'));
+    newEntryField.sendKeys('Acquire new monkey');
+    createTaskButton.click();
+    checkbox.click();
+    newEntryField.sendKeys('Sell stupid monkey');
+    createTaskButton.click();
+    expect(element.all(by.repeater('task in toDoCtrl.allTasks')).count()).toEqual(2);
+    element(by.id('clearCompletedTasksButton')).click();
+    expect(element.all(by.repeater('task in toDoCtrl.allTasks')).count()).toEqual(1);
+  });
+
 })

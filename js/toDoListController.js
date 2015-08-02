@@ -5,12 +5,29 @@ toDoList.controller('ToDoListController', [function() {
   self.allTasks = []
 
   self.addNewTask = function() {
-    self.allTasks.push(self.newTask);
-      }
+      var task = {"name": self.newTask,
+                  "done": false}
+      self.allTasks.push(task);
+      self.newTask = '';
+    }
 
   self.displayTasks = function() {
     for (i = 0; i<self.allTasks.length; i++) {
-      console.log(self.allTasks[i])
-    }
-  }
+      console.log(self.allTasks[i].name)
+    };
+  };
+
+  self.clearCompletedTasks = function() {
+    array = self.allTasks
+    self.allTasks = []
+    array.forEach(function(task) {
+      if(task.done === false) {
+        self.allTasks.push(task);
+      }
+    });
+  };
+
+  self.clearAllTasks = function(){
+    self.allTasks = []
+  };
 }]);

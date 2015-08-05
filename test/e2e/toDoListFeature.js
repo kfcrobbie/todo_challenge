@@ -68,5 +68,4 @@ describe('To Do List', function() {
     element(by.id('clearCompletedTasksButton')).click();
     expect(element.all(by.repeater('task in toDoCtrl.allTasks')).count()).toEqual(1);
   });
-
 })

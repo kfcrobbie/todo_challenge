@@ -23,7 +23,7 @@
     <ul class="list-group" id="test" ng-repeat="task in toDoCtrl.allTasks | filter:filterRule">
       <li>
         <input type="checkbox" id=markDone ng-model="task.done"/>
-        <a href="#" editable-text="task.name">{{ task.name || "empty" }}</a>
+        <a href="#" id="editable_field" editable-text="task.name">{{ task.name || "empty" }}</a>
         </li>
         </ul>
 

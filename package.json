@@ -6,7 +6,6 @@
   "scripts": {
     "test": "karma start test/karma.conf.js",
      "postinstall": "bower cache clean && bower install"
-     },
   },
   "repository": {
     "type": "git",
